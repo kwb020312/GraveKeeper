@@ -10,6 +10,7 @@ import FloatingRocks from "./FloatingRocks";
 import Rocks from "./Rocks";
 import Trees from "./Trees";
 import Words from "./Words";
+import Grass from "./Grass";
 
 const SceneContainer = () => {
   return (
@@ -30,6 +31,7 @@ const SceneContainer = () => {
       <FloatingRocks />
       <Trees />
       <Words />
+      <Grass />
     </Suspense>
   );
 };
