@@ -11,7 +11,7 @@ const Words = () => {
         position={[3.75, 5.65, 0.75]}
         rotation={[0, -0.2, -0.05]}
       >
-        Chobby's
+        Halloween
         <meshStandardMaterial color={[1, 0.15, 0.1]} emissive={[1, 0.1, 0]} />
       </Text3D>
 
@@ -23,7 +23,7 @@ const Words = () => {
         position={[3.5, 6, 0]}
         rotation={[0, -0.35, -0.05]}
       >
-        Halloween
+        Chobby's
         <meshStandardMaterial color={[1, 0.15, 0.1]} emissive={[1, 0.1, 0]} />
       </Text3D>
     </>

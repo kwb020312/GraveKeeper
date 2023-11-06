@@ -8,7 +8,7 @@ const Trees = () => {
   useEffect(() => {
     if (!gltf) return;
     let mesh = gltf.scene.children[0];
-    mesh.customDepthMaterial.envMapIntensity = 2.5;
+    mesh.material.envMapIntensity = 2.5;
   }, [gltf]);
   return <primitive object={gltf.scene} />;
 };
