@@ -6,6 +6,8 @@ import {
 import { Suspense } from "react";
 import FloatingIsland from "./FloatingIsland";
 import Portal from "./Portal";
+import FloatingRocks from "./FloatingRocks";
+import Rocks from "./Rocks";
 
 const SceneContainer = () => {
   return (
@@ -20,8 +22,10 @@ const SceneContainer = () => {
       />
       <OrbitControls target={[1, 5, 0]} maxPolarAngle={Math.PI * 0.5} />
 
-      <FloatingIsland />
       <Portal />
+      <Rocks />
+      <FloatingIsland />
+      <FloatingRocks />
     </Suspense>
   );
 };
