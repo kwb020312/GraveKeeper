@@ -8,6 +8,8 @@ import FloatingIsland from "./FloatingIsland";
 import Portal from "./Portal";
 import FloatingRocks from "./FloatingRocks";
 import Rocks from "./Rocks";
+import Trees from "./Trees";
+import Words from "./Words";
 
 const SceneContainer = () => {
   return (
@@ -26,6 +28,8 @@ const SceneContainer = () => {
       <Rocks />
       <FloatingIsland />
       <FloatingRocks />
+      <Trees />
+      <Words />
     </Suspense>
   );
 };
