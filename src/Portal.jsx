@@ -1,9 +1,11 @@
 import { useLoader, useFrame } from "@react-three/fiber";
 import React, { useEffect } from "react";
 import {
+  AlwaysStencilFunc,
   DoubleSide,
   EquirectangularReflectionMapping,
   LinearEncoding,
+  ReplaceStencilOp,
   Scene,
   TextureLoader,
   WebGLRenderTarget,
@@ -43,6 +45,11 @@ const Portal = () => {
 
     let maskMesh = mask.scene.children[0];
     maskMesh.material.side = DoubleSide;
+    maskMesh.material.transparent = false;
+    maskMesh.material.stencilWrite = true;
+    maskMesh.material.stencilRef = 1;
+    maskMesh.material.stencilFunc = AlwaysStencilFunc;
+    maskMesh.material.stencilZPass = ReplaceStencilOp;
   }, [model, mask]);
 
   return (
