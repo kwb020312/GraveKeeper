@@ -4,6 +4,13 @@ import {
   OrbitControls,
   PerspectiveCamera,
 } from "@react-three/drei";
+import {
+  EffectComposer,
+  DepthOfField,
+  HueSaturation,
+  BrightnessContrast,
+  ChromaticAberration,
+} from "@react-three/postprocessing";
 import { Suspense } from "react";
 import FloatingIsland from "./FloatingIsland";
 import Portal from "./Portal";
@@ -35,6 +42,20 @@ const SceneContainer = () => {
         <Grass />
       </Float>
       <FloatingRocks />
+
+      <EffectComposer stencilBuffer={true}>
+        <DepthOfField
+          focusDistance={0.012}
+          focalLength={0.015}
+          bokehScale={7}
+        />
+        <HueSaturation hue={0} saturation={-0.15} />
+        <BrightnessContrast brightness={0.0} contrast={0.035} />
+        <ChromaticAberration
+          radialModulation={true}
+          offset={[0.00175, 0.00175]}
+        />
+      </EffectComposer>
     </Suspense>
   );
 };
