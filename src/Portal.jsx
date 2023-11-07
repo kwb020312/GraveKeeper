@@ -1,11 +1,39 @@
-import { useLoader } from "@react-three/fiber";
+import { useLoader, useFrame } from "@react-three/fiber";
 import React, { useEffect } from "react";
-import { DoubleSide } from "three";
+import {
+  DoubleSide,
+  EquirectangularReflectionMapping,
+  LinearEncoding,
+  Scene,
+  TextureLoader,
+  WebGLRenderTarget,
+} from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+
+const scene = new Scene();
+scene.background = new TextureLoader().load(
+  "/textures/galaxy.jpg",
+  (texture) => {
+    texture.encoding = LinearEncoding;
+    texture.mapping = EquirectangularReflectionMapping;
+  }
+);
+
+const target = new WebGLRenderTarget(window.innerWidth, window.innerHeight);
+
+window.addEventListener("resize", () => {
+  target.setSize(window.innerWidth, window.innerHeight);
+});
 
 const Portal = () => {
   const model = useLoader(GLTFLoader, "/models/portal.glb");
   const mask = useLoader(GLTFLoader, "/models/portal_mask.glb");
+
+  useFrame((state) => {
+    state.gl.setRenderTarget(target);
+    state.gl.render(scene, state.camera);
+    state.gl.setRenderTarget(null);
+  });
 
   useEffect(() => {
     if (!model) return;
