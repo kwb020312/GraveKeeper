@@ -22,6 +22,7 @@ import Trees from "./Trees";
 import Words from "./Words";
 import Grass from "./Grass";
 import { Color, CylinderGeometry, Mesh, MeshBasicMaterial } from "three";
+import { SceneParticles } from "./SceneParticles";
 
 const lightColor = new Color(1, 0.2, 0.1);
 const mesh = new Mesh(
@@ -68,6 +69,7 @@ const SceneContainer = () => {
         <Trees />
         <Words />
         <Grass />
+        <SceneParticles />
       </Float>
       <FloatingRocks />
 
