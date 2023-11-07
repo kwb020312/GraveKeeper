@@ -11,6 +11,7 @@ import {
   WebGLRenderTarget,
 } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import FillQuad from "./FillQuad";
 
 const scene = new Scene();
 scene.background = new TextureLoader().load(
@@ -56,6 +57,7 @@ const Portal = () => {
     <>
       <primitive object={model.scene} />
       <primitive object={mask.scene} />
+      <FillQuad map={target.texture} maskId={1} />
     </>
   );
 };
